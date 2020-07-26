@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "node",
+    "jest",
+    "prettier",
+    "import"
+  ],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "airbnb-base"
+  ],
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "node/exports-style": [
+      "error",
+      "module.exports"
+    ],
+    "max-len": [
+      2,
+      120
+    ],
+    "node/no-missing-require": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  }    
+}

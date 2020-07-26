@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  redis:
+    image: redis:5.0.5
+    restart: always
+    container_name: redis
+    expose:
+    - 6379
+
+  server:
+    build: ./server
+    restart: always
+    container_name: server
+    volumes:
+      - ./server:/www
+    ports:
+      - 3000:3000
+      - 9221:9230
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - REDIS_URL=redis://redis
+    command:
+      sh -c 'cd /www && npm i && npm run dev'
+    links:
+      - redis
+    
+  client:
+    build: ./client
+    restart: always
+    container_name: client
+    ports:
+      - 8000:8000
+    volumes:
+      - './client:/app'
+      - '/app/node_modules'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
