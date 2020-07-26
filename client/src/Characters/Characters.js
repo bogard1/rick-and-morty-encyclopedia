@@ -52,22 +52,28 @@ class Characters extends React.Component {
 
   render() {
     const { characters } = this.state;
+    const character_logo = {
+      'max-height': '50px',
+    };
+
     return (
       <div>
         <div className="col-md-6 col-md-offset-3">
-          <h1>Bienvenido!</h1>
+          <h1>¡Bienvenido!</h1>
           <h3>Personajes de Rick and Morty</h3>
           {characters.loading && <em>Cargando personajes...</em>}
           {characters.length &&
             <table className="table">
-              {characters.map((character, index) =>
-                <tr key={index}>
-                  <td>{character.name}</td>
-                  <td>{character.status}</td>
-                  <td>{character.gender}</td>
-                  <td>{character.image}</td>
-                </tr>
-              )}
+              <tbody>
+                {characters.map((character, index) =>
+                  <tr key={index}>
+                    <td>{ character.name }</td>
+                    <td>{ character.status }</td>
+                    <td>{ character.gender }</td>
+                    <td><img style={character_logo} src={ character.image }></img></td>
+                  </tr>
+                )}
+              </tbody>
             </table>
           }
         </div>     
