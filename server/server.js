@@ -53,4 +53,6 @@ app.use('/users', usersService);
 app.use('/characters', authMiddleware, charactersService);
 
 app.listen(PORT, '0.0.0.0');
-console.log(`Running on http://localhost:${PORT}`);
+console.log('Corriendo');
+
+module.exports = app

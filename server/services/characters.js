@@ -14,27 +14,8 @@ router.get('/', async (req, res) => {
 
   const results = response.data.results.map(formatCharacter);
 
-  res.json(results);
+  res.json({ characters: results });
 });
-
-router.get('/all', async (req, res) => {
-  const characters = await getResults(CHARACTERS_ENDPOINT);
-  res.json(characters);
-});
-
-const getResults = async (url) => {
-  console.log(url);
-  const response = await axios.get(url);
-
-  let results = response.data.results.map(formatCharacter);
-
-  if (response.data.info.next) {
-    const nextResults = await getResults(response.data.info.next);
-    results.push(...nextResults);
-  }
-
-  return results;
-}
 
 const formatCharacter = character => {
   const { name, status, species, gender, image } = character;

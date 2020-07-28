@@ -21,7 +21,7 @@ class Characters extends React.Component {
     this.setState(
       (state, props) => ({ characters: { loading: true } }),
       this.fetchPage,
-    );   
+    );
   }
 
   fetchNextPage() {
@@ -31,7 +31,7 @@ class Characters extends React.Component {
         characters: { loading: true },
       }),
       this.fetchPage,
-    );    
+    );
   }
 
   fetchPrevPage() {
@@ -42,18 +42,18 @@ class Characters extends React.Component {
           characters: { loading: true },
         }),
         this.fetchPage,
-      );    
+      );
     }
   }
-  
+
   fetchPage() {
-    charactersService.getCharacters(this.state.page).then(characters => this.setState({ characters }));
+    charactersService.getCharacters(this.state.page).then(response => this.setState({ characters: response.characters }));
   }
 
   render() {
-    const { characters } = this.state;
+    const { characters, page } = this.state;
     const character_logo = {
-      'max-height': '50px',
+      maxHeight: '50px',
     };
 
     return (
@@ -76,13 +76,16 @@ class Characters extends React.Component {
               </tbody>
             </table>
           }
-        </div>     
+        </div>
         <div className="col-md-6 col-md-offset-3">
-          <button className="btn btn-default" onClick={ this.fetchPrevPage }>
-            Página anterior
-          </button>
+          {page > 1 &&
+            <button className="btn btn-default" onClick={ this.fetchPrevPage }>
+              Página anterior
+            </button>
+          }
+
           <button className="btn btn-default" onClick={ this.fetchNextPage }>
-            Página siguiente 
+            Página siguiente
           </button>
         </div>
         <div className="col-md-6 col-md-offset-3">
@@ -90,7 +93,7 @@ class Characters extends React.Component {
             <Link to="/login">Logout</Link>
           </p>
         </div>
-      </div>      
+      </div>
     );
   }
 }
