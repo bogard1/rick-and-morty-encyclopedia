@@ -6,8 +6,8 @@ const express = require('express');
 const app = express();
 app.use('/characters', charactersService);
 
-describe('Post Endpoints', () => {
-  it('should create a new post', async () => {
+describe('characters', () => {
+  it('should return a list of characters whith name, status, gender and image', async () => {
     const res = await request(app)
       .get('/characters/');
 

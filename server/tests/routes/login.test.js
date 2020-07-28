@@ -1,8 +1,8 @@
 const request = require('supertest');
 const app = require('../../server');
 
-describe('Post Endpoints', () => {
-  it('should create a new post', async () => {
+describe('login', () => {
+  it('should return an error given bad password and username', async () => {
     const res = await request(app)
       .post('/users/login')
       .send({
@@ -14,7 +14,7 @@ describe('Post Endpoints', () => {
     expect(res.body).toHaveProperty('error')
   })
 
-  it('should create a new post', async () => {
+  it('should return status ok given good credentials', async () => {
     const res = await request(app)
       .post('/users/login')
       .send({
