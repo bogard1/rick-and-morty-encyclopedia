@@ -6,7 +6,9 @@ Levanta el frontend en el puerto 8000 y el backend en el 4000. Redis se expone e
 
 # Correr
 
+```
 docker-compose up --build
+```
 
 # Consideraciones
 
@@ -17,10 +19,12 @@ Se agrega un usuario para probar el sistema por defecto:
 
 Si se desean agregar usuarios es necesario usar el endpoint de registro:
 
+```
 POST: localhost:3000/users/register
 
 Body:
 { "username":"rodrigo", "password": "1234" }
+```
 
 # Tests
 
@@ -29,7 +33,7 @@ Para ejecutar los test en la carpeta /server ejecutar:
     - npm test
 
 # Covertura
-
+```
 |--------------------|---------|----------|---------|---------|-------------------|
 |File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s |
 |--------------------|---------|----------|---------|---------|-------------------|
@@ -50,3 +54,4 @@ Tests:       4 passed, 4 total
 Snapshots:   0 total
 Time:        4.314 s
 Ran all test suites.
+```
