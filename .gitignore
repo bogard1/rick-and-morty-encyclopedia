@@ -29,6 +29,3 @@ bundle/
 
 # dotenv environment variables file
 .env
-
-# 
-server/coverage
