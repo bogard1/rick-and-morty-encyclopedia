@@ -2,7 +2,7 @@
 
 Simple servicio para mostrar los personajes de Rick and Morty.
 
-Levanta el frontend en el puerto 8000 y el backend en el 4000. Redis se expone en el puerto 6379.
+Levanta el frontend en el puerto 8000 y el backend en el 3000. Redis se expone en el puerto 6379.
 
 # Correr
 
