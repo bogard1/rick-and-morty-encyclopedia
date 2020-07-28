@@ -7,7 +7,7 @@ class Character extends React.Component {
     };
   
     return (
-      <tr key={ this.props.key }>
+      <tr>
         <td>{ this.props.name }</td>
         <td>{ this.props.status }</td>
         <td>{ this.props.gender }</td>

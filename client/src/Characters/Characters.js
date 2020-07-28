@@ -56,14 +56,7 @@ class Characters extends React.Component {
     const { characters, loading, page } = this.state;
 
     const charactersList = characters.map((character, index) =>
-      <Character
-        key={ index }
-        index={ index }
-        name={ character.name }
-        status={ character.status }
-        gender={ character.gender }
-        image={ character.image }
-      />
+      <Character key={ index } { ...character } />
     )
 
     return (
